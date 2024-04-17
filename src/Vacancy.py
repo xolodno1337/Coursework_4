@@ -1,7 +1,4 @@
-from src.abstract import API
-
-
-class Vacancy(API):
+class Vacancy:
     """ Класс для работы с вакансиями. """
     name: str   # Название вакансии
     url_job: str    # Ссылка на вакансию
@@ -18,5 +15,3 @@ class Vacancy(API):
         self.work_schedule = work_schedule
         self.pay = pay
 
-    def comparison_vacation(self):
-        """ Метод, который сравнивает вакансии. """
