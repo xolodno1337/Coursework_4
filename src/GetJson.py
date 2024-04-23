@@ -1,11 +1,13 @@
 import json
-
 from src.AbstractJson import AbstractJson
-from src.GetApi import GetAPI
 
 
 class GetJson(AbstractJson):
     """ Класс для сохранения информации о вакансиях в JSON-файл. """
+
+    def __str__(self):
+        """ Представление класса GetJson для пользователей. """
+        return 'Класс для сохранения информации о вакансиях в JSON-файл.'
 
     def save_vacancy(self, data):
         """ Сохранение вакансий в файле. """
@@ -21,8 +23,3 @@ class GetJson(AbstractJson):
         """ Удаление информации о вакансиях. """
         with open('vacancy.json', 'w', encoding='utf-8') as file:
             json.dump([], file, indent=4, ensure_ascii=False)
-
-
-a = GetAPI('Тестировщик')
-b = GetJson()
-print(b.save_vacancy(a.get_vacancy()))
