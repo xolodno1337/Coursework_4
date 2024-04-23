@@ -5,12 +5,10 @@ from src.func import filter_word, sorted_salary, get_top
 
 
 def user_interaction():
-    """Функция для взаимодействия с пользователем """
-    platforms = ["HeadHunter"]
-    search_query = input("Введите поисковый запрос: ").title()
-    filter_words = input("Введите ключевые слова для фильтрации вакансий: ").title().split()
-    salary_range = list(map(int, input("Введите диапазон зарплат, пример: 100000 - 150000: ").split('-')))
-    top_n = int(input("Введите количество вакансий для вывода в топ N: "))
+    """Функция для взаимодействия с пользователем. """
+    platforms = ['HeadHunter']
+    search_query = input('Введите поисковый запрос: ').title()
+    filter_words = input('Введите ключевые слова для фильтрации вакансий: ').title().split()
 
     vacancy = GetAPI(search_query)
     vacancy_json = GetJson()
@@ -28,13 +26,20 @@ def user_interaction():
         for i in vacancy_json.read_vacancy()['items']]
 
     f_vacancy = filter_word(filter_words, list_vacancy)
-    i = sorted_salary(salary_range, f_vacancy)
-    v = get_top(top_n, f_vacancy)
+    while True:
+        command = input('Введите команду 1 для сортировки по зарплате, 2 - для вывода количество вакансий в топ N,'
+                        ' 3 - для изменения вакансии, 0 - для выхода их программы: ')
+        if command == '1':
+            salary_range = list(map(int, input('Введите диапазон зарплат, пример: 100000 - 150000: ').split('-')))
+            i = sorted_salary(salary_range, f_vacancy)
+        elif command == '2':
+            top_n = int(input('Введите количество вакансий для вывода в топ N: '))
+            v = get_top(top_n, f_vacancy)
+        elif command == '3':
+            user_interaction()
+        elif command == '0':
+            print('Надеемся нашли, что искали')
+            break
 
 
 user_interaction()
-# while True:
-#     command = input("Введите команду 1 для сортировки по зарплате, 2 - для вывода в топ): ")
-#     if command == "1":
-#         вызываешь функцию сортировки
-#     elif command == "2": вызываешь функцию для вывода в топ
