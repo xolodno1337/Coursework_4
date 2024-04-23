@@ -6,7 +6,7 @@ class AbstractApi(ABC):
 
     @abstractmethod
     def __str__(self):
-        """ Представление класса для пользователей. """
+        """ Представление класса GetAPI для пользователей. """
         pass
 
     @abstractmethod
