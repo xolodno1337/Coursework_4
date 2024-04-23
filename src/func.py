@@ -5,7 +5,7 @@ def filter_word(filter_words, list_vacancy):
         for v in list_vacancy:
             if v.description and (i in v.name or v.description or v.requirement):
                 filter_vacancy.add(v)
-    print(filter_vacancy)
+    return filter_vacancy
 
 
 def sorted_salary(salary_range, f_vacancy):
