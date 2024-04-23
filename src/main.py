@@ -39,7 +39,7 @@ def user_interaction():
             user_interaction()
         elif command == '0':
             print('Надеемся нашли, что искали')
-            break
+        break
 
 
 user_interaction()
