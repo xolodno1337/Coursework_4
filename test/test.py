@@ -25,6 +25,7 @@ def vacancy_python():
 
 
 def test_init(vacancy_python):
+    """ Тест на инициализацию класса Vacancy. """
     assert vacancy_python.name == 'Python разработчик (Middle)'
     assert vacancy_python.url_job == 'https://api.hh.ru/vacancies/97164750?host=hh.ru'
     assert vacancy_python.requirement == ('Опыт в работе со следующим стеком: <highlighttext>Python</highlighttext>3'
