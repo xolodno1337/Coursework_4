@@ -32,9 +32,11 @@ def user_interaction():
         if command == '1':
             salary_range = list(map(int, input('Введите диапазон зарплат, пример: 100000 - 150000: ').split('-')))
             i = sorted_salary(salary_range, f_vacancy)
+            continue
         elif command == '2':
             top_n = int(input('Введите количество вакансий для вывода в топ N: '))
             v = get_top(top_n, f_vacancy)
+            continue
         elif command == '3':
             user_interaction()
         elif command == '0':
